@@ -6,11 +6,13 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.jingom.android.glowing.border.glowingBorder
 import com.jingom.android.glowingborder.ui.theme.GlowingBorderTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +24,14 @@ class MainActivity : ComponentActivity() {
 				Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
 					Greeting(
 						name = "Android",
-						modifier = Modifier.padding(innerPadding)
+						modifier = Modifier
+							.padding(innerPadding)
+							.glowingBorder(
+								color = MaterialTheme.colorScheme.error,
+								strokeWidth = 8f,
+								glowingLength = 16f,
+								glowingSpeed = 1000f
+							)
 					)
 				}
 			}
